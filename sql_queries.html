@@ -1,0 +1,19 @@
+<<<Select all tags>>>
+  
+  SELECT t.term_id
+FROM wp_terms AS t
+INNER JOIN wp_term_taxonomy AS tt
+ON t.term_id = tt.term_id
+WHERE tt.taxonomy IN ('post_tag')
+AND tt.count > 0
+ORDER BY t.name ASC
+  
+  <<Delete all tags>>
+  
+  DELETE t.term_id
+FROM wp_terms AS t
+INNER JOIN wp_term_taxonomy AS tt
+ON t.term_id = tt.term_id
+WHERE tt.taxonomy IN ('post_tag')
+AND tt.count > 0
+ORDER BY t.name ASC
